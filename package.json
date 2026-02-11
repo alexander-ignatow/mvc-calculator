@@ -1,15 +1,15 @@
 {
   "name": "mvc-calculator",
-  "version": "1.0.0",
-  "description": "MVC structured calculator express app",
-  "main": "dist/server.js",
+  "version": "2.0.0",
+  "description": "Calculator API – Express + TypeScript, feature-module architecture demo",
+  "main": "dist/main.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
+    "dev": "tsx watch src/main.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
+    "start": "node dist/main.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write \"src/**/*.ts\""
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/alexander-ignatow/mvc-calculator.git"
   },
-  "keywords": [],
+  "keywords": ["calculator", "express", "typescript", "clean-architecture"],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -30,11 +30,11 @@
   },
   "homepage": "https://github.com/alexander-ignatow/mvc-calculator#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
-    "@types/jest": "^30.0.0",
     "@types/node": "^25.2.2",
     "@types/supertest": "^6.0.3",
     "@typescript-eslint/eslint-plugin": "^8.55.0",
@@ -42,12 +42,11 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "jest": "^30.2.0",
     "nodemon": "^3.1.11",
     "prettier": "^3.8.1",
     "supertest": "^7.2.2",
-    "ts-jest": "^29.4.6",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "tsx": "^4.19.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.1.0"
   }
 }
