@@ -17,7 +17,11 @@ export function createApp(historyRepo: HistoryRepository): express.Express {
   app.use(express.json());
 
   /* ── Health check ──────────────────────────────────────────── */
-  app.get('/health', (_req: Request, res: Response) => {
+  app.get('/health', (req: Request, res: Response) => {
+    // Easter egg: respond with 418 "I'm a teapot" if any query params are present
+    if (Object.keys(req.query).length > 0) {
+      return res.status(418).send("I'm a teapot");
+    }
     res.send('Service is up and running');
   });
 
