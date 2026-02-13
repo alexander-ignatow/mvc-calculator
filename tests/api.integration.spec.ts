@@ -21,6 +21,18 @@ describe('Calculator API – integration tests', () => {
       expect(res.status).toBe(200);
       expect(res.text).toBe('Service is up and running');
     });
+
+    it('should return 418 teapot when query params are present', async () => {
+      const res = await request(app).get('/health?test=value');
+      expect(res.status).toBe(418);
+      expect(res.text).toBe("I'm a teapot");
+    });
+
+    it('should return 418 teapot with any query parameter', async () => {
+      const res = await request(app).get('/health?foo=bar&baz=qux');
+      expect(res.status).toBe(418);
+      expect(res.text).toBe("I'm a teapot");
+    });
   });
 
   /* ────────────────────────────────────────────────────────────── *
